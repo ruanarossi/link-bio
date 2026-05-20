@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caminhos Dourados</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <img src="imagens/logo-png.png" class="logo" />
+
+      <h1>Caminhos Dourados</h1>
+
+      <p>Escolha uma opção:</p>
+
+      <button onclick="abrirImagem('imagens/horario1.jpg')">
+        Horário Bom Jardim
+      </button>
+
+      <button onclick="abrirImagem('imagens/horario2.jpg')">
+        Horário Banquete
+      </button>
+
+      <button onclick="abrirImagem('imagens/horario3.jpg')">
+        Horário Amparo
+      </button>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <span class="fechar" onclick="fecharImagem()"> &times; </span>
+
+      <img id="imagemModal" class="imagem-modal" />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
