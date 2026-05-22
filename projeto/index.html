@@ -1,40 +1,211 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Caminhos Dourados</title>
 
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Ícones -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <div class="container">
+      <!-- Banner Superior -->
+      <div class="banner"></div>
+
+      <!-- TROQUE PELA SUA LOGO -->
       <img src="imagens/logo-png.png" class="logo" />
 
-      <h1>Caminhos Dourados</h1>
+      <div class="card-body">
+        <h1>Caminhos Dourados</h1>
 
-      <p>Escolha uma opção:</p>
+        <p class="subtitle">Horários &bull; Informações &bull; Transporte</p>
 
-      <button onclick="abrirImagem('imagens/horario1.jpg')">
-        Horário Bom Jardim
-      </button>
+        <!-- REDES -->
+        <div class="socials">
+          <!-- INSTAGRAM -->
+          <a href="https://instagram.com/caminhosdouradosnf" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
 
-      <button onclick="abrirImagem('imagens/horario2.jpg')">
-        Horário Banquete
-      </button>
+          <!-- WHATSAPP -->
+          <a href="https://wa.me/5522999999999" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+          </a>
 
-      <button onclick="abrirImagem('imagens/horario3.jpg')">
-        Horário Amparo
-      </button>
+          <!-- FACEBOOK -->
+          <a href="https://facebook.com/caminhosdouradosnf" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+
+        <!-- BOTÃO HORÁRIOS -->
+        <button class="main-button" onclick="openModal('horariosModal')">
+          🚌 Horários de Ônibus
+        </button>
+
+        <!-- BOTÃO TRABALHE -->
+        <button class="main-button" onclick="openModal('trabalheModal')">
+          💼 Trabalhe Conosco
+        </button>
+
+        <div class="footer">Criado por TrioWeb</div>
+      </div>
     </div>
 
-    <!-- Modal -->
-    <div id="modal" class="modal">
-      <span class="fechar" onclick="fecharImagem()"> &times; </span>
+    <!-- MODAL HORÁRIOS -->
+    <div class="modal" id="horariosModal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('horariosModal')">
+          &times;
+        </span>
 
-      <img id="imagemModal" class="imagem-modal" />
+        <h2 class="modal-title">Horários de Ônibus</h2>
+
+        <!-- BANQUETE -->
+        <button class="modal-button" onclick="openModal('banqueteModal')">
+          Banquete x Bom Jardim
+        </button>
+
+        <!-- SÃO JOSÉ -->
+        <button class="modal-button" onclick="openModal('saoJoseModal')">
+          São José x Bom Jardim
+        </button>
+
+        <!-- BARRA ALEGRE -->
+        <button
+          class="modal-button"
+          onclick="openImage('imagens/barra-alegre.jpg')"
+        >
+          Barra Alegre x Bom Jardim
+        </button>
+
+        <!-- BNH -->
+        <button class="modal-button" onclick="openImage('imagens/bnh.jpg')">
+          Bom Jardim x BNH
+        </button>
+
+        <!-- CAMPO BELO -->
+        <button
+          class="modal-button"
+          onclick="openImage('imagens/campo-belo.jpg')"
+        >
+          Bom Jardim x Campo Belo x Bem te vi x Silveira
+        </button>
+
+        <!-- FATIMA -->
+        <button class="modal-button" onclick="openImage('imagens/fatima.jpg')">
+          Bom Jardim x Bairro de Fátima
+        </button>
+      </div>
     </div>
 
+    <!-- MODAL BANQUETE -->
+    <div class="modal" id="banqueteModal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('banqueteModal')">
+          &times;
+        </span>
+
+        <h2 class="modal-title">Banquete x Bom Jardim</h2>
+
+        <button
+          class="modal-button"
+          onclick="openImage('imagens/banquete-semana.jpg')"
+        >
+          Segunda a Sexta
+        </button>
+
+        <button
+          class="modal-button"
+          onclick="openImage('imagens/banquete-fds.jpg')"
+        >
+          Sábado e Domingo
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL SÃO JOSÉ -->
+    <div class="modal" id="saoJoseModal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('saoJoseModal')">
+          &times;
+        </span>
+
+        <h2 class="modal-title">São José x Bom Jardim</h2>
+
+        <button
+          class="modal-button"
+          onclick="openImage('imagens/saojose-semana.jpg')"
+        >
+          Segunda a Sexta
+        </button>
+
+        <button
+          class="modal-button"
+          onclick="openImage('imagens/saojose-sabado.jpg')"
+        >
+          Sábado
+        </button>
+
+        <button
+          class="modal-button"
+          onclick="openImage('imagens/saojose-domingo.jpg')"
+        >
+          Domingo
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL TRABALHE -->
+    <div class="modal" id="trabalheModal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('trabalheModal')">
+          &times;
+        </span>
+
+        <h2 class="modal-title">Trabalhe Conosco</h2>
+
+        <div class="work-text">
+          Envie seu currículo para:
+
+          <br /><br />
+
+          <strong> rh@caminhosdourados.com.br </strong>
+
+          <br /><br />
+
+          Nossa equipe entrará em contato caso surjam oportunidades compatíveis
+          com o seu perfil.
+        </div>
+      </div>
+    </div>
+
+    <!-- VISUALIZADOR DE IMAGEM -->
+    <div class="image-viewer" id="imageViewer">
+      <span class="close-image" onclick="closeImage()"> &times; </span>
+
+      <img id="viewerImage" />
+    </div>
+
+    <!-- JS -->
     <script src="script.js"></script>
   </body>
 </html>

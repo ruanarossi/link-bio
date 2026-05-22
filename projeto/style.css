@@ -1,61 +1,327 @@
-body {
+* {
   margin: 0;
   padding: 0;
-  font-family: Arial;
-  background: #111;
-  color: white;
-  text-align: center;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background: linear-gradient(135deg, #eff3f8 0%, #e4eaf1 100%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 24px;
 }
 
 .container {
-  padding: 40px 20px;
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border-radius: 36px;
+  padding: 0;
+  box-shadow: 0 24px 48px rgba(10, 20, 35, 0.08);
+}
+
+.banner {
+  width: 100%;
+  height: 130px;
+  background:
+    linear-gradient(to bottom, rgba(10, 57, 110, 0.2), rgba(10, 57, 110, 0.85)),
+    url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=800&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  border-radius: 36px 36px 0 0;
+}
+
+.card-body {
+  padding: 0 28px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logo {
-  width: 120px;
-  margin-bottom: 20px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  display: block;
+  margin: -45px auto 16px auto;
+  position: relative;
+  z-index: 3;
+  background: white;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-button {
-  width: 90%;
-  max-width: 400px;
-  padding: 15px;
-  margin: 10px;
-  border: none;
-  border-radius: 12px;
-  background: #ffd700;
-  color: #000;
-  font-size: 18px;
+.logo:hover {
+  transform: scale(1.02);
+}
+
+h1 {
+  color: #0a396e;
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 4px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.main-button {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #334155;
+  padding: 14px 20px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  font-weight: bold;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-button:hover {
-  opacity: 0.9;
+.main-button:hover {
+  transform: translateY(-2px);
+  border-color: #0a396e;
+  color: #0a396e;
+  box-shadow: 0 6px 16px rgba(10, 57, 110, 0.06);
+  background: #f8fafc;
 }
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.socials a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0a396e;
+  font-size: 20px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.socials a:hover {
+  opacity: 0.7;
+  transform: translateY(-2px);
+}
+
+.footer {
+  text-align: center;
+  color: #94a3b8;
+  margin-top: 24px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* MODAL */
 
 .modal {
-  display: none;
   position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
   z-index: 999;
-  left: 0;
-  top: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 32px;
+  padding: 36px 32px;
+  position: relative;
+  animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.15);
 }
 
-.imagem-modal {
-  max-width: 90%;
-  max-height: 90%;
-  margin-top: 5%;
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
-.fechar {
+.close {
   position: absolute;
   top: 20px;
-  right: 35px;
-  color: white;
-  font-size: 40px;
+  right: 24px;
+  color: #94a3b8;
+  font-size: 32px;
+  line-height: 1;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close:hover {
+  color: #e53e3e;
+  transform: scale(1.1);
+}
+
+.modal-title {
+  color: #0a396e;
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 28px;
+  letter-spacing: -0.3px;
+}
+
+.modal-button {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #334155;
+  padding: 16px 20px;
+  border-radius: 18px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.modal-button:hover {
+  transform: translateY(-2px);
+  border-color: #0a396e;
+  color: #0a396e;
+  background: #f8fafc;
+  box-shadow: 0 8px 20px rgba(10, 57, 110, 0.08);
+}
+
+/* IMAGEM */
+
+.image-viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.image-viewer img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.close-image {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 44px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-image:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.work-text {
+  color: #475569;
+  line-height: 1.8;
+  font-size: 15px;
+  text-align: center;
+}
+
+.work-text strong {
+  color: #0a396e;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 16px;
+  }
+
+  .container {
+    border-radius: 32px;
+  }
+
+  .banner {
+    border-radius: 32px 32px 0 0;
+  }
+
+  .card-body {
+    padding: 0 20px 28px 20px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .main-button {
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+  }
+
+  .modal-content {
+    padding: 32px 24px;
+    border-radius: 28px;
+  }
 }
