@@ -33,11 +33,10 @@ body {
 .banner {
   width: 100%;
   height: 130px;
-  background:
-    linear-gradient(to bottom, rgba(10, 57, 110, 0.2), rgba(10, 57, 110, 0.85)),
-    url("imagens/bus.jpg");
+  background: url("imagens/patio2.jpg");
   background-size: cover;
-  background-position: center;
+  /* Altere os valores abaixo (Eixo X e Eixo Y) para reposicionar a imagem. */
+  background-position: 50% 66%;
   border-radius: 36px 36px 0 0;
   -webkit-mask-image: radial-gradient(
     ellipse 50% 24px at 50% 100%,
@@ -301,6 +300,16 @@ h1 {
   color: #0a396e;
   font-weight: 700;
   font-size: 16px;
+}
+
+.work-text a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.work-text a:hover {
+  opacity: 0.7;
 }
 
 @media (max-width: 480px) {
