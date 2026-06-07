@@ -33,7 +33,7 @@ body {
 .banner {
   width: 100%;
   height: 130px;
-  background: url("imagens/patio2.jpg");
+  background: url("https://res.cloudinary.com/dqmdqljmi/image/upload/v1780873015/patio2_oxov7a.jpg");
   background-size: cover;
   /* Altere os valores abaixo (Eixo X e Eixo Y) para reposicionar a imagem. */
   background-position: 50% 66%;
